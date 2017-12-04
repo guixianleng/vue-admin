@@ -1,10 +1,11 @@
-# my-project
+# Vue全家桶 + axios + ElementUi + mockjs搭建的后台管理系统
 
-> this is my vue-cli project
-
-## Build Setup
+## 项目执行
 
 ``` bash
+# project clone
+git clone https://github.com/guixianleng/vue-admin.git
+
 # install dependencies
 npm install
 
@@ -18,5 +19,3 @@ npm run build
 npm run build --report
 
 ```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

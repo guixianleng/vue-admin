@@ -1,3 +1,5 @@
+// 引入mockjs
+
 import Mock from 'mockjs'
 
 /**
@@ -18,37 +20,51 @@ import Mock from 'mockjs'
   *参数 options：指向本次请求的 Ajax 选项集
   */
 
-const data = {
-  'title': 'Syntax Demo',
-  'string1|1-10': '★',
-  'string2|3': 'value',
-  'number1|+1': 100,
-  'number2|1-100': 100,
-  'number3|1-100.1-10': 1,
-  'number4|123.1-10': 1,
-  'number5|123.3': 1,
-  'number6|123.10': 1.123,
-  'boolean1|1': true,
-  'boolean2|1-2': true,
-  'object1|2-4': {
-    '110000': '北京市',
-    '120000': '天津市',
-    '130000': '河北省',
-    '140000': '山西省'
-  },
-  'object2|2': {
-    '310000': '上海市',
-    '320000': '江苏省',
-    '330000': '浙江省',
-    '340000': '安徽省'
-  },
-  'array1|1': ['AMD', 'CMD', 'KMD', 'UMD'],
-  'array2|1-10': ['Mock.js'],
-  'array3|3': ['Mock.js'],
+// const data = {
+//   'title': 'Syntax Demo',
+//   'object1|2-4': {
+//     '110000': '北京市',
+//     '120000': '天津市',
+//     '130000': '河北省',
+//     '140000': '山西省'
+//   },
+//   'object2|2': {
+//     '310000': '上海市',
+//     '320000': '江苏省',
+//     '330000': '浙江省',
+//     '340000': '安徽省'
+//   },
 
-  'function': function () {
-    return this.title
+//   'function': function () {
+//     return this.title
+//   }
+// }
+
+// export default Mock.mock(data)
+
+// 获取 mock.Random 对象
+
+const Random = Mock.Random
+
+// mock一组数据
+
+const produceNewsData = function () {
+  let articles = []
+
+  for (let i = 0; i < 20; i++) {
+    let newArticleObject = {
+      title: Random.csentence(5, 30), // Random.csentence( min, max )
+      thumbnail_pic_s: Random.dataImage('300x250', 'mock的图片'), // Random.dataImage( size, text ) 生成一段随机的 Base64 图片编码
+      author_name: Random.cname(), // Random.cname() 随机生成一个常见的中文姓名
+      date: Random.date() + ' ' + Random.time() // Random.date()指示生成的日期字符串的格式,默认为yyyy-MM-dd；Random.time() 返回一个随机的时间字符串
+    }
+    articles.push(newArticleObject)
+  }
+  return {
+    data: articles
   }
 }
 
-export default Mock.mock(data)
+// Mock.mock( url, post/get , 返回的数据)；
+
+export default Mock.mock('/news/index', 'post', produceNewsData)

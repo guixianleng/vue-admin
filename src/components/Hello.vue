@@ -48,14 +48,25 @@
 </template>
 
 <script>
-import data from '../utils/mock'
+import { mapGetters } from 'vuex'
+// import api from '../api/index'
 export default {
+  computed: {
+    ...mapGetters({
+      'get_date_obj': 'get_date_obj'
+    })
+  },
   data () {
     return {}
   },
-  created () {
-    console.log(data)
-    console.log('axios', this.$axios)
+  mounted () {
+    this.$store.dispatch('get_date_obj')
+    setTimeout(() => {
+      console.log(this.get_date_obj)
+    }, 1000)
+    // api.mineBaseMsgApi().then(res => {
+    //   console.log(res)
+    // })
   },
   methods: {
     handleOpen (key, keyPath) {
