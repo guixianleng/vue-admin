@@ -40,8 +40,51 @@
         </el-row>
       </el-aside>
       <el-container>
-        <el-header>Header</el-header>
-        <el-main>Main</el-main>
+        <el-header>Vue-admin</el-header>
+        <el-main>
+          <el-table
+          ref="multipleTable"
+          :data="get_date_obj.data.list"
+          tooltip-effect="dark"
+          style="width: 100%"
+          @selection-change="handleSelectionChange">
+          <el-table-column
+            type="selection"
+            align="center">
+          </el-table-column>
+          <el-table-column
+            label="日期"
+            align="center"
+            width="120">
+            <template slot-scope="scope">{{ scope.row.birthday }}</template>
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            align="center">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址"
+            align="center"
+            show-overflow-tooltip>
+          </el-table-column>
+          <el-table-column
+            prop="operate"
+            label="操作"
+            align="center"
+            show-overflow-tooltip>
+            <template slot-scope="scope">
+              <el-button type="link">编辑</el-button>
+              <el-button type="link">删除</el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+        <div style="margin-top: 20px">
+          <!-- <el-button @click="toggleSelection([tableData3[1], tableData3[2]])">切换第二、第三行的选中状态</el-button> -->
+          <el-button @click="toggleSelection()">取消选择</el-button>
+        </div>
+        </el-main>
       </el-container>
     </el-container>
   </el-container>
@@ -57,13 +100,12 @@ export default {
     })
   },
   data () {
-    return {}
+    return {
+      multipleSelection: []
+    }
   },
   mounted () {
     this.$store.dispatch('get_date_obj')
-    setTimeout(() => {
-      console.log(this.get_date_obj)
-    }, 1000)
     // api.mineBaseMsgApi().then(res => {
     //   console.log(res)
     // })
@@ -74,6 +116,18 @@ export default {
     },
     handleClose (key, keyPath) {
       console.log(key, keyPath)
+    },
+    toggleSelection (rows) {
+      if (rows) {
+        rows.forEach(row => {
+          this.$refs.multipleTable.toggleRowSelection(row)
+        })
+      } else {
+        this.$refs.multipleTable.clearSelection()
+      }
+    },
+    handleSelectionChange (val) {
+      this.multipleSelection = val
     }
   }
 }
@@ -94,7 +148,7 @@ export default {
 }
 
 .el-aside {
-  background-color: #D3DCE6;
+  /* background-color: #D3DCE6; */
   color: #333;
   text-align: center;
   line-height: 200px;
@@ -102,9 +156,9 @@ export default {
 }
 
 .el-main {
-  background-color: #E9EEF3;
+  /* background-color: #E9EEF3; */
   color: #333;
   text-align: center;
-  line-height: 160px;
+  padding: 0
 }
 </style>

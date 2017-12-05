@@ -7,23 +7,24 @@ const Random = Mock.Random
 
 // mock一组数据
 
-const produceNewsData = function () {
-  let articles = []
+const tableListData = function () {
+  let list = []
 
-  for (let i = 0; i < 100; i++) {
-    let newArticleObject = {
-      title: Random.csentence(5, 30), // Random.csentence( min, max )
-      thumbnail_pic_s: Random.dataImage('300x250', 'mock的图片'), // Random.dataImage( size, text ) 生成一段随机的 Base64 图片编码
-      author_name: Random.cname(), // Random.cname() 随机生成一个常见的中文姓名
-      date: Random.date() + ' ' + Random.time() // Random.date()指示生成的日期字符串的格式,默认为yyyy-MM-dd；Random.time() 返回一个随机的时间字符串
+  for (let i = 0; i < 20; i++) {
+    let array = {
+      address: Random.county(true), // Random.county(true)生成所属的省、市
+      name: Random.cname(), // Random.cname() 随机生成一个常见的中文姓名
+      birthday: Random.date() // Random.date()指示生成的日期字符串的格式,默认为yyyy-MM-dd
+      // age: new Date() - this.birthday
+      // 'id|1': Number
     }
-    articles.push(newArticleObject)
+    list.push(array)
   }
   return {
-    data: articles
+    list: list
   }
 }
 
-// Mock.mock( url, post/get , 返回的数据)；
+// Mock.mock( url, post/get , 返回的数据)
 
-export default Mock.mock('/news/index', 'post', produceNewsData)
+export default Mock.mock('/people/tableList', 'get', tableListData)
