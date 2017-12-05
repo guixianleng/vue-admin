@@ -6,12 +6,18 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
+import * as filter from './filter' // 全局vue filter
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 
 // 引入mockjs
 require('./mock/index')
+
+// global filter.
+Object.keys(filter.default).forEach(key => {
+  Vue.filter(key, filter.default[key])
+})
 
 /* eslint-disable no-new */
 new Vue({

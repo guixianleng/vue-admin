@@ -178,7 +178,7 @@ export default {
 }
 
 .el-aside {
-  background-color: #D3DCE6;
+  background-color: #324157;
   color: #333;
   text-align: center;
   line-height: 200px;
@@ -186,7 +186,23 @@ export default {
 }
 
 .el-menu {
-  background-color: #D3DCE6;
+  background-color: #324157;
+}
+
+.el-submenu__title{
+  color: #fff
+}
+
+.el-menu li {
+  color: #20a0ff
+}
+
+.el-menu-item-group__title {
+  padding: 0
+}
+
+.el-submenu .el-menu {
+  background-color: #143A52;
 }
 
 .el-main {
