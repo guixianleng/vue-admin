@@ -1,89 +1,114 @@
 <template>
   <el-container>
     <el-container>
-      <el-aside width="200px">
-        <el-row class="tac">
-          <el-col :span="24">
-            <el-menu
-              default-active="2"
-              class="el-menu-vertical-demo"
-              @open="handleOpen"
-              @close="handleClose">
-              <el-submenu index="1">
-                <template slot="title">
-                  <i class="el-icon-location"></i>
-                  <span>导航一</span>
-                </template>
-                <el-menu-item-group>
-                  <template slot="title">分组一</template>
-                  <el-menu-item index="1-1">选项1</el-menu-item>
-                  <el-menu-item index="1-2">选项2</el-menu-item>
-                </el-menu-item-group>
-                <el-menu-item-group title="分组2">
-                  <el-menu-item index="1-3">选项3</el-menu-item>
-                </el-menu-item-group>
-                <el-submenu index="1-4">
-                  <template slot="title">选项4</template>
-                  <el-menu-item index="1-4-1">选项1</el-menu-item>
-                </el-submenu>
-              </el-submenu>
-              <el-menu-item index="2">
-                <i class="el-icon-menu"></i>
-                <span slot="title">导航二</span>
-              </el-menu-item>
-              <el-menu-item index="3">
-                <i class="el-icon-setting"></i>
-                <span slot="title">导航三</span>
-              </el-menu-item>
-            </el-menu>
-          </el-col>
-        </el-row>
-      </el-aside>
+      <el-header>
+        <h1>Vue-admin后台管理系统</h1>
+      </el-header>
       <el-container>
-        <el-header>Vue-admin</el-header>
+        <el-aside width="200px">
+          <el-row class="tac">
+            <el-col :span="24">
+              <el-menu
+                default-active="2"
+                class="el-menu-vertical-demo"
+                @open="handleOpen"
+                @close="handleClose">
+                <el-submenu index="1">
+                  <template slot="title">
+                    <i class="el-icon-document"></i>
+                    <span>表格</span>
+                  </template>
+                  <el-menu-item-group>
+                    <el-menu-item index="1-1">基础表格</el-menu-item>
+                    <el-menu-item index="1-2">vue组件</el-menu-item>
+                  </el-menu-item-group>
+                  <!-- <el-menu-item-group title="分组2">
+                    <el-menu-item index="1-3">选项3</el-menu-item>
+                  </el-menu-item-group>
+                  <el-submenu index="1-4">
+                    <template slot="title">选项4</template>
+                    <el-menu-item index="1-4-1">选项1</el-menu-item>
+                  </el-submenu> -->
+                </el-submenu>
+                <el-submenu index="2">
+                  <template slot="title">
+                    <i class="el-icon-menu"></i>
+                    <span slot="title">表单</span>
+                  </template>
+                  <el-menu-item-group>
+                    <el-menu-item index="1-1">基础表单</el-menu-item>
+                    <el-menu-item index="1-2">表单上传</el-menu-item>
+                  </el-menu-item-group>
+                </el-submenu>
+                <el-submenu index="3">
+                  <template slot="title">
+                    <i class="el-icon-star-on"></i>
+                    <span slot="title">图形</span>
+                  </template>
+                  <el-menu-item-group>
+                    <el-menu-item index="1-1">echarts</el-menu-item>
+                    <el-menu-item index="1-2">vueMap</el-menu-item>
+                  </el-menu-item-group>
+                </el-submenu>
+                <el-submenu index="4">
+                  <template slot="title">
+                    <i class="el-icon-edit"></i>
+                    <span slot="title">富文本</span>
+                  </template>
+                  <el-menu-item-group>
+                    <el-menu-item index="1-1">vue编辑器</el-menu-item>
+                  </el-menu-item-group>
+                </el-submenu>
+              </el-menu>
+            </el-col>
+          </el-row>
+        </el-aside>
         <el-main>
           <el-table
-          ref="multipleTable"
-          :data="get_date_obj.data.list"
-          tooltip-effect="dark"
-          style="width: 100%"
-          @selection-change="handleSelectionChange">
-          <el-table-column
-            type="selection"
-            align="center">
-          </el-table-column>
-          <el-table-column
-            label="日期"
-            align="center"
-            width="120">
-            <template slot-scope="scope">{{ scope.row.birthday }}</template>
-          </el-table-column>
-          <el-table-column
-            prop="name"
-            label="姓名"
-            align="center">
-          </el-table-column>
-          <el-table-column
-            prop="address"
-            label="地址"
-            align="center"
-            show-overflow-tooltip>
-          </el-table-column>
-          <el-table-column
-            prop="operate"
-            label="操作"
-            align="center"
-            show-overflow-tooltip>
-            <template slot-scope="scope">
-              <el-button type="link">编辑</el-button>
-              <el-button type="link">删除</el-button>
-            </template>
-          </el-table-column>
-        </el-table>
-        <div style="margin-top: 20px">
-          <!-- <el-button @click="toggleSelection([tableData3[1], tableData3[2]])">切换第二、第三行的选中状态</el-button> -->
-          <el-button @click="toggleSelection()">取消选择</el-button>
-        </div>
+            ref="multipleTable"
+            :data="get_date_obj.data.list"
+            border
+            tooltip-effect="dark"
+            style="width: 100%"
+            @selection-change="handleSelectionChange">
+            <el-table-column
+              type="selection"
+              align="center">
+            </el-table-column>
+            <el-table-column
+              label="日期"
+              align="center"
+              width="120">
+              <template slot-scope="scope">{{ scope.row.birthday }}</template>
+            </el-table-column>
+            <el-table-column
+              prop="name"
+              label="姓名"
+              align="center">
+            </el-table-column>
+            <el-table-column
+              prop="address"
+              label="地址"
+              align="center"
+              show-overflow-tooltip>
+            </el-table-column>
+            <el-table-column
+              prop="operate"
+              label="操作"
+              align="center"
+              show-overflow-tooltip>
+              <template slot-scope="scope">
+                <el-button type="primary" size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                <el-button type="danger" size="mini" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+              </template>
+            </el-table-column>
+          </el-table>
+          <div style="margin: 10px 0 0 10px">
+            <el-button @click="handleDelete()" type="danger">
+              <i class="el-icon-delete"></i>
+              批量删除
+            </el-button>
+          </div>
         </el-main>
       </el-container>
     </el-container>
@@ -128,6 +153,12 @@ export default {
     },
     handleSelectionChange (val) {
       this.multipleSelection = val
+    },
+    handleEdit (index, row) {
+      console.log(index, row)
+    },
+    handleDelete (index, row) {
+      console.log(index, row)
     }
   }
 }
@@ -144,21 +175,22 @@ export default {
   border-radius: #24c881;
   color: #333;
   text-align: center;
-  line-height: 60px;
 }
 
 .el-aside {
-  /* background-color: #D3DCE6; */
+  background-color: #D3DCE6;
   color: #333;
   text-align: center;
   line-height: 200px;
   min-height: 1000px;
 }
 
+.el-menu {
+  background-color: #D3DCE6;
+}
+
 .el-main {
-  /* background-color: #E9EEF3; */
   color: #333;
-  text-align: center;
   padding: 0
 }
 </style>
