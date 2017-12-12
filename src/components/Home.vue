@@ -1,4 +1,5 @@
 <template>
+ <div>
   <el-container>
     <el-container>
       <el-header>
@@ -104,7 +105,7 @@
             </el-table-column>
           </el-table>
           <div style="margin: 10px 0 0 10px">
-            <el-button @click="handleDelete()" type="danger">
+            <el-button @click="handleDelete()" type="danger" :disabled="multipleSelection.length === 0">
               <i class="el-icon-delete"></i>
               批量删除
             </el-button>
@@ -113,12 +114,17 @@
       </el-container>
     </el-container>
   </el-container>
+  <edit-dialog :isEdit="isEdit" v-if="isShow" :editInfo="editInfo" v-model="isShow" @success="handleSuccess"/>
+ </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-// import api from '../api/index'
+import editDialog from '../view/components/EditDialog'
 export default {
+  components: {
+    editDialog
+  },
   computed: {
     ...mapGetters({
       'get_date_obj': 'get_date_obj'
@@ -126,14 +132,14 @@ export default {
   },
   data () {
     return {
-      multipleSelection: []
+      multipleSelection: [],
+      isShow: false,
+      isEdit: false,
+      editInfo: {}
     }
   },
   mounted () {
     this.$store.dispatch('get_date_obj')
-    // api.mineBaseMsgApi().then(res => {
-    //   console.log(res)
-    // })
   },
   methods: {
     handleOpen (key, keyPath) {
@@ -156,9 +162,15 @@ export default {
     },
     handleEdit (index, row) {
       console.log(index, row)
+      this.editInfo = row
+      this.isEdit = true
+      this.isShow = true
     },
     handleDelete (index, row) {
       console.log(index, row)
+    },
+    handleSuccess (value) {
+      console.log(value)
     }
   }
 }
