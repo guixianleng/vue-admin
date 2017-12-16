@@ -14,9 +14,8 @@ const tableListData = function () {
     let array = {
       address: Random.county(true), // Random.county(true)生成所属的省、市
       name: Random.cname(), // Random.cname() 随机生成一个常见的中文姓名
-      birthday: Random.date() // Random.date()指示生成的日期字符串的格式,默认为yyyy-MM-dd
-      // age: new Date() - this.birthday
-      // 'id|1': Number
+      birthday: Random.date(), // Random.date()指示生成的日期字符串的格式,默认为yyyy-MM-dd
+      age: new Date().getFullYear() - Random.date('yyyy')
     }
     list.push(array)
   }

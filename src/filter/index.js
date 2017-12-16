@@ -126,7 +126,7 @@ function getWeekDay (weekCode) { // code转周几
 }
 
 export default {
-  FormatDate,
+  formatDate: FormatDate,
   formatMoney,
   noPreformatMoney,
   getWeekList,
