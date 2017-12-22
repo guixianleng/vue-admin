@@ -67,7 +67,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import editDialog from '../components/EditDialog'
+import editDialog from '../../components/EditDialog'
 export default {
   components: {
     editDialog

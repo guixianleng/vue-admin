@@ -13,7 +13,7 @@ export default new Router({
     {
       path: '/view/table',
       name: 'Home',
-      component: resolve => require(['../view/table/Table.vue'], resolve)
+      component: resolve => require(['../view/modules/table/Table.vue'], resolve)
     }
   ]
 })
