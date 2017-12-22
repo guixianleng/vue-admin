@@ -41,7 +41,7 @@
   
   但是就是会报错如下：
   
- ![](https://github.com/guixianleng/vue-admin/blob/master/static/errorImages/errorMsg.png)
+  ![](https://github.com/guixianleng/vue-admin/blob/master/static/errorImages/errorMsg.png)
 
 - 解决方法:
  首先安装sass-resources-loader：
