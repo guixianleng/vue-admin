@@ -37,6 +37,7 @@
 1. 全局scss设置问题
 - 导入scss绝对/相对路径没有问题，
   ![](https://github.com/guixianleng/vue-admin/blob/master/static/errorImages/relative_path.png)
+  
   但是就是会报错如下：
  ![](https://github.com/guixianleng/vue-admin/blob/master/static/errorImages/errorMsg.png)
 
