@@ -7,12 +7,11 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 import * as filter from './filter' // 全局vue filter
+import 'styles/index.scss'
+import './mock/index' // 引入mockjs
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
-
-// 引入mockjs
-require('./mock/index')
 
 // global filter.
 Object.keys(filter.default).forEach(key => {

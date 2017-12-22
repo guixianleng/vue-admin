@@ -1,62 +1,68 @@
 <template>
-	<div>
-		<el-table
-			ref="multipleTable"
-			:data="get_date_obj.data.list"
-			border
-			tooltip-effect="dark"
-			style="width: 100%"
-			@selection-change="handleSelectionChange">
-			<el-table-column
-				type="selection"
-				align="center">
-			</el-table-column>
-			<el-table-column
-				label="日期"
-				align="center"
-				width="120">
-				<template slot-scope="scope">{{ scope.row.birthday }}</template>
-			</el-table-column>
-			<el-table-column
-				prop="name"
-				label="姓名"
-				align="center">
-			</el-table-column>
-			<el-table-column
-				prop="sex"
-				label="性别"
-				align="center">
-			</el-table-column>
-			<el-table-column
-				prop="age"
-				label="年龄"
-				align="center">
-			</el-table-column>
-			<el-table-column
-				prop="address"
-				label="地址"
-				align="center"
-				show-overflow-tooltip>
-			</el-table-column>
-			<el-table-column
-				prop="operate"
-				label="操作"
-				align="center"
-				show-overflow-tooltip>
-				<template slot-scope="scope">
-					<el-button type="primary" size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-					<el-button type="danger" size="mini" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
-				</template>
-			</el-table-column>
-		</el-table>
-		<div style="margin: 10px 0 0 10px">
-			<el-button @click="handleDelete()" type="danger" :disabled="multipleSelection.length === 0">
-				<i class="el-icon-delete"></i>
-				批量删除
-			</el-button>
-		</div>
-  	<edit-dialog :isEdit="isEdit" v-if="isShow" :editInfo="editInfo" v-model="isShow" @success="handleSuccess"/>
-	</div>
+  <div>
+    <el-table
+      ref="multipleTable"
+      :data="get_date_obj.data.list"
+      border
+      tooltip-effect="dark"
+      style="width: 100%"
+      @selection-change="handleSelectionChange">
+      <el-table-column
+        type="selection"
+        align="center">
+      </el-table-column>
+      <el-table-column
+        label="出生日期"
+        align="center"
+        width="120">
+        <template slot-scope="scope">
+          <i class="el-icon-time"></i>
+          <span>{{ scope.row.birthday }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="name"
+        label="姓名"
+        align="center">
+      </el-table-column>
+      <el-table-column
+        prop="sex"
+        label="性别"
+        align="center">
+        <template slot-scope="scope">
+          {{scope.row.sex === 1 ? '男' : '女'}}
+        </template>
+      </el-table-column>
+      <el-table-column
+        prop="age"
+        label="年龄"
+        align="center">
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="地址"
+        align="center"
+        show-overflow-tooltip>
+      </el-table-column>
+      <el-table-column
+        prop="operate"
+        label="操作"
+        align="center"
+        show-overflow-tooltip>
+        <template slot-scope="scope">
+          <el-button type="primary" size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+          <el-button type="danger" size="mini" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <div style="margin: 10px 0 0 10px">
+      <el-button @click="handleDelete()" type="danger" :disabled="multipleSelection.length === 0">
+        <i class="el-icon-delete"></i>
+        批量删除
+      </el-button>
+    </div>
+    <edit-dialog :isEdit="isEdit" v-if="isShow" :editInfo="editInfo" v-model="isShow" @success="handleSuccess"/>
+  </div>
 </template>
 
 <script>
@@ -81,9 +87,6 @@ export default {
   },
   mounted () {
     this.$store.dispatch('get_date_obj')
-    setTimeout(() => {
-      console.log(this.get_date_obj)
-    }, 1000)
   },
   methods: {
     toggleSelection (rows) {

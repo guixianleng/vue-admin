@@ -1,5 +1,54 @@
 # Vue全家桶 + axios + ElementUi + mockjs搭建的后台管理系统
 
+## 项目目录结构
+```shell
+├── build                      // 构建相关  
+├── config                     // 配置相关
+├── src                        // 源代码
+│   ├── api                    // 所有请求
+│   ├── assets                 // 主题 字体等静态资源
+│   ├── components             // 全局公用组件
+│   ├── filtres                // 全局filter
+│   ├── mock                   // mock数据
+│   ├── router                 // 路由
+│   ├── store                  // 全局store管理
+│   ├── styles                 // 全局样式
+│   ├── utils                  // 全局公用方法
+│   │── view                   // 业务模块根目录
+│   │	  ├── components         // 公共业务模块组件目录
+│   │	  ├── module             // 具体模块目录
+│   │	  │   ├── components         // 公共业务模块组件目录
+│   │		│   └── index.vue          // 页面组件
+│   │		└── index.vue          // 页面组件modules                // 业务模块根目录
+│   ├── App.vue                // 入口页面
+│   └── main.js                // 入口 加载组件 初始化等
+├── static                     // 第三方不打包资源
+│   ├── jquery
+│   └── Tinymce                // 富文本
+├── .babelrc                   // babel-loader 配置
+├── eslintrc.js                // eslint 配置项
+├── .gitignore                 // git 忽略项
+├── favicon.ico                // favicon图标
+├── index.html                 // html模板
+├── package.json               // package.json
+├── READERME.md                // 文档说明
+```
+## 踩过的坑
+1. 全局scss设置问题
+- 导入scss绝对/相对路径没有问题，
+  ![path]()
+  但是就是会报错如下：
+ ![errorMsg]()
+
+- 解决方法:
+ 首先安装sass-resources-loader：
+```
+$ npm install sass-resources-loader --save
+```
+- 其次删除/注释webpack.base.conf.js中module的编译scss的loader
+  ![resolve]()
+
+
 ## 项目执行
 
 ``` bash

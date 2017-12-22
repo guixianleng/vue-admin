@@ -1,0 +1,153 @@
+@import './var.scss';
+body {
+  color: $color-black;
+  font-family: "Microsoft YaHei","黑体","宋体",sans-serif;
+  font-size:14px;
+  line-height: 1.75;
+}
+
+pre {
+  white-space: pre-wrap
+}
+
+a, a:visited {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+input, textarea, select, button{
+  font-family: inherit;
+}
+
+img{
+  vertical-align: middle;
+  outline:none;
+  border:0;
+}
+
+/* Font Color */
+.font-color-default{ //默认色
+  color: $color-black;
+}
+.light{ //淡色
+  color: $color-black-base;
+}
+.weak { //辅助颜色
+  color: $color-sub;
+}
+.link { //链接颜色
+  color: $color-link!important;
+  cursor: pointer;
+}
+
+/* Font Size */
+.font-size-default{//默认大小
+  font-size:14px;
+}
+.small, small { //小字体
+  font-size: 12px;
+}
+.big, big { //大字体
+  font-size: 16px;
+}
+.large{
+  font-size:18px;//超大字体
+}
+
+/* Font Other */
+.bold { //粗体
+  font-weight: 700;
+}
+
+/* Layout */
+.tc, .center{ //内容水平居中
+  text-align:center;
+}
+.tr{ //内容右对齐
+  text-align:right;
+}
+.tl{ //内容左对齐
+  text-align:left;
+}
+.wrapper{
+  width:1200px;
+  margin:auto
+}
+
+/* 内容分割 */
+.divider{//分割线
+  border-bottom: 1px solid $color-divider;
+}
+hr{//分割线
+  border-width:0;
+  border-top: 1px solid $color-divider;
+  margin:0;
+}
+.space { //间距
+  margin: 0px 5px;
+  color: $color-sub;
+}
+
+
+
+/* 表单样式 */
+.el-form{
+  .input-small{ //输入框小尺寸
+    width:150px;
+  }
+
+  .input-middle{ //输入框中尺寸，默认宽度
+    width:290px;
+  }
+
+  .input-large{ //输入框大尺寸
+    width:600px;
+  }
+
+  .input-block{ //输入框满行
+    width: 100%;
+  }
+}
+
+.button-box { //表单操作或者按钮操作区
+  text-align: center;
+  margin: 40px 0 25px 0;
+  >a{
+    margin:0 10px;
+  }
+  .el-form-item{
+    text-align: left
+  }
+}
+
+/* 搜索表单样式 */
+.form-search{
+  margin-bottom: 20px;
+  .el-input {
+    width: 220px
+  }
+  .el-select{
+    .el-input {
+      width: auto
+    }
+  }
+  .el-button{
+    &--primary-plain{
+      min-width:0;
+    }
+  }
+}
+
+.btn-icon{ // 带icon Button
+  margin:0 10px;
+  padding-left: 12px;
+  padding-right: 12px;
+  min-width:0;
+}
+
+.editor-html-content{ // 富文本内容
+  img {
+    max-width: 100%;
+  }
+}

@@ -15,12 +15,9 @@ const getters = {
 const actions = {
   get_date_obj ({commit, state}, params) {
     api.mineBaseMsgApi(params).then((json) => {
-      // console.log(arguments)
-      // console.log(json.data)
-      commit('GET_DATE_OBJ', {
-        params: params,
-        data: json.data
-      })
+      commit('GET_DATE_OBJ', json.data)
+    }).catch((ERR) => {
+      return false
     })
   }
 }

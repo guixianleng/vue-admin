@@ -6,6 +6,7 @@ var vueLoaderConfig = require('./vue-loader.conf')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
+var src = path.resolve(__dirname, '../src')
 
 module.exports = {
   entry: {
@@ -22,7 +23,10 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
+      'src': path.resolve(__dirname, '../src'),
+      'styles': path.resolve(__dirname, '../src/styles'),
+      'view': path.resolve(__dirname, '../src/view')
     }
   },
   module: {
@@ -46,10 +50,10 @@ module.exports = {
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test')]
       },
-      {
-        test: /\.scss$/,
-        loaders: ["style", "css", "sass"]
-      },
+      // {
+      //   test: /\.scss$/,
+      //   loaders: ["style", "css", "sass"]
+      // },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
