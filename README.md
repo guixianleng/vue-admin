@@ -36,7 +36,7 @@
 ## 踩过的坑
 1. 全局scss设置问题
 - 导入scss绝对/相对路径没有问题，
-  ![path]()
+  ![](https://github.com/guixianleng/vue-admin/blob/master/static/errorImages/relative_path.png)
   但是就是会报错如下：
  ![](https://github.com/guixianleng/vue-admin/blob/master/static/errorImages/errorMsg.png)
 
@@ -46,7 +46,7 @@
 $ npm install sass-resources-loader --save
 ```
 - 其次删除/注释webpack.base.conf.js中module的编译scss的loader
-  ![resolve]()
+  ![](https://github.com/guixianleng/vue-admin/blob/master/static/errorImages/resolve.png)
 
 
 ## 项目执行
