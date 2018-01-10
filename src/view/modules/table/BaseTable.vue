@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content-box">
     <el-table
       ref="multipleTable"
       :data="get_date_obj.data.list"
@@ -116,7 +116,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

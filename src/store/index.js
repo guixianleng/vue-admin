@@ -1,6 +1,7 @@
 import api from '../api/index'
 import Vuex from 'vuex'
 import vue from 'vue'
+import login from './modules/login'
 
 vue.use(Vuex)
 
@@ -32,7 +33,10 @@ const store = new Vuex.Store({
   state,
   getters,
   actions,
-  mutations
+  mutations,
+  modules: {
+    login
+  }
 })
 
 export default store
