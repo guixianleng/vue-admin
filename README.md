@@ -33,7 +33,7 @@
 ├── package.json               // package.json
 ├── READERME.md                // 文档说明
 ```
-## 踩过的坑
+## 占坑
 1. 全局scss设置问题
 - 导入scss绝对/相对路径没有问题:
 
