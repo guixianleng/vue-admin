@@ -16,20 +16,26 @@ export default new Router({
 export const powerRouter = [
   {
     path: '/',
-    redirect: '/index',
+    redirect: '/readerme',
     name: 'index',
     component: resolve => require(['../components/index.vue'], resolve),
     children: [
       { // 主页面
-        path: '/index',
-        name: 'index',
-        component: resolve => require(['../components/index.vue'], resolve),
+        path: '/readerme',
+        name: 'readerme',
+        component: resolve => require(['../view/modules/index.vue'], resolve),
         meta: {role: 'B'}
       },
       {
         path: '/basetable',
         name: 'Table',
         component: resolve => require(['../view/modules/table/BaseTable.vue'], resolve),
+        meta: {role: 'B'}
+      },
+      {
+        path: '/editableTable',
+        name: 'editableTable',
+        component: resolve => require(['../view/modules/table/EditableTable.vue'], resolve),
         meta: {role: 'B'}
       }
     ]

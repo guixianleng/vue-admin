@@ -1,11 +1,13 @@
 <template>
     <div class="sidebar">
       <el-menu :default-active="onRoutes" class="el-menu-vertical-demo" theme="dark" unique-opened router>
-        <template v-for="item in items">
-          <template v-if="item.subs">
+        <template v-for="item in contentItems">
+          <template v-if="item.subLists">
             <el-submenu :index="item.index">
               <template slot="title"><i :class="item.icon"></i>{{ item.title }}</template>
-              <el-menu-item v-for="(subItem,i) in item.subs" :key="i" :index="subItem.index">{{ subItem.title }}
+              <el-menu-item v-for="(item,i) in item.subLists" :key="i" :index="item.index">
+                <i :class="item.icon"></i>
+                <span>{{ item.title }}</span>
               </el-menu-item>
             </el-submenu>
           </template>
@@ -23,63 +25,68 @@
 export default {
   data () {
     return {
-      items: [
+      contentItems: [
         {
           icon: 'el-icon-setting',
-          index: 'readme',
+          index: 'readerme',
           title: '项目自述'
         },
         {
-          icon: 'el-icon-menu',
+          icon: 'iconfont icon-biaoge',
           index: '2',
           title: '表格',
-          subs: [
+          subLists: [
             {
+              icon: 'iconfont icon-biaoge',
               index: 'basetable',
-              title: '基础表格'
+              title: '基础'
             },
             {
+              icon: 'el-icon-edit',
               index: 'editableTable',
-              title: '可编辑表格'
+              title: '编辑'
             },
             {
-              index: 'vuetable',
-              title: 'Vue表格组件'
+              icon: 'iconfont icon-drag',
+              index: 'dragTable',
+              title: '拖拽'
             }
           ]
         },
         {
-          icon: 'el-icon-date',
+          icon: 'iconfont icon-biaodan',
           index: '3',
           title: '表单',
-          subs: [
+          subLists: [
             {
               index: 'baseform',
-              title: '基本表单'
+              title: '基础'
             },
             {
-              index: 'vueeditor',
-              title: '编辑器'
-            },
-            {
-              index: 'markdown',
-              title: 'markdown'
-            },
-            {
-              index: 'upload',
-              title: '文件上传'
+              index: 'validateForm',
+              title: '校验'
             }
           ]
         },
         {
           icon: 'el-icon-star-on',
           index: 'basecharts',
-          title: '图表'
+          title: 'echarts'
         },
         {
-          icon: 'el-icon-upload2',
-          index: 'drag',
-          title: '拖拽'
+          icon: 'iconfont icon-bianji',
+          index: 'vueeditor',
+          title: '编辑器'
+        },
+        {
+          icon: 'iconfont icon-fuwenben',
+          index: 'markdown',
+          title: 'markdown'
+        },
+        {
+          icon: 'iconfont icon-shangchuan',
+          index: 'upload',
+          title: '文件上传'
         }
       ]
     }
@@ -97,7 +104,7 @@ export default {
   min-height: 800px;
   display: block;
   position: absolute;
-  width: 180px;
+  width: 200px;
   left: 0;
   top: 80px;
   bottom: 0;

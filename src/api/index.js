@@ -2,7 +2,7 @@ import fetch from '../utils/fetch'
 
 export default{
   // 获取我的页面的后台数据
-  mineBaseMsgApi (params) {
+  baseTable (params) {
     return fetch({
       url: 'https://easy-mock.com/mock/59dc46f31de3d46fa94ccad9/admin/api/getTableList',
       method: 'GET',

@@ -3,7 +3,7 @@
     <div class="login_box">
       <el-form :model="loginfrom" :rules="rules" ref="loginfrom" class="demo-ruleForm" label-width="60px">
         <el-form-item label="用户名" prop="username">
-          <el-input type="username" v-model="loginfrom.username"></el-input>
+          <el-input type="username" v-model="loginfrom.username" v-focus></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="psw">
           <el-input type="password" v-model="loginfrom.psw"></el-input>
@@ -78,13 +78,17 @@ export default {
   background-color: #155263;
   width: 100%;
   height: 100%;
+  // background: url("/static/images/login_bgc.jpg") center center no-repeat;
+  // background-image: url("/static/images/login_bgc.jpg");
+  // margin: 0px auto;
+  // padding-top: 49%;
   .login_box{
     width: 350px;
     position: fixed;
     left: 39%;
     top: 250px;
     border: 1px solid skyblue;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 60px 60px 20px 25px;
     text-align: center;
     background-color: #FDFDFD

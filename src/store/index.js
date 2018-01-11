@@ -6,17 +6,17 @@ import login from './modules/login'
 vue.use(Vuex)
 
 const state = {
-  get_date: {}
+  table_base_list: []
 }
 
 const getters = {
-  get_date_obj: state => state.get_date
+  table_base_list: state => state.table_base_list
 }
 
 const actions = {
-  get_date_obj ({commit, state}, params) {
-    api.mineBaseMsgApi(params).then((json) => {
-      commit('GET_DATE_OBJ', json.data)
+  table_base_list ({commit, state}, params) {
+    api.baseTable(params).then((json) => {
+      commit('TABLE_BASE_LIST', json.data)
     }).catch((ERR) => {
       return false
     })
@@ -24,8 +24,8 @@ const actions = {
 }
 
 const mutations = {
-  GET_DATE_OBJ (state, params) {
-    state.get_date = params
+  TABLE_BASE_LIST (state, params) {
+    state.table_base_list = params
   }
 }
 

@@ -2,8 +2,7 @@
   <div class="content-box">
     <el-table
       ref="multipleTable"
-      :data="table_base_list.data.list"
-      border
+      :data="tableList"
       tooltip-effect="dark"
       style="width: 100%"
       @selection-change="handleSelectionChange">
@@ -28,7 +27,8 @@
       <el-table-column
         prop="sex"
         label="性别"
-        align="center">
+        align="center"
+        width="60">
         <template slot-scope="scope">
           {{scope.row.sex === 1 ? '男' : '女'}}
         </template>
@@ -43,6 +43,16 @@
         label="地址"
         align="center"
         show-overflow-tooltip>
+      </el-table-column>
+      <el-table-column
+        prop="describe"
+        label="描述"
+        align="center"
+        show-overflow-tooltip>
+        <template slot-scope="scope">
+          <el-input v-model="scope.row.describe" v-if="isEdit"/>
+          <span v-else>{{scope.row.describe}}</span>
+        </template>
       </el-table-column>
       <el-table-column
         prop="operate"
@@ -61,32 +71,22 @@
         批量删除
       </el-button>
     </div>
-    <edit-dialog :isEdit="isEdit" v-if="isShow" :editInfo="editInfo" v-model="isShow" @success="handleSuccess"/>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import editDialog from '../../components/EditDialog'
+// import { mapGetters } from 'vuex'
+// import api from 'api/table'
 export default {
-  components: {
-    editDialog
-  },
-  computed: {
-    ...mapGetters({
-      'table_base_list': 'table_base_list'
-    })
-  },
   data () {
     return {
       multipleSelection: [],
-      isShow: false,
       isEdit: false,
-      editInfo: {}
+      tableList: []
     }
   },
   mounted () {
-    this.$store.dispatch('table_base_list')
+
   },
   methods: {
     toggleSelection (rows) {
@@ -102,16 +102,10 @@ export default {
       this.multipleSelection = val
     },
     handleEdit (index, row) {
-      console.log(index, row)
-      this.editInfo = row
       this.isEdit = true
       this.isShow = true
     },
     handleDelete (index, row) {
-      console.log(index, row)
-    },
-    handleSuccess (value) {
-      console.log(value)
     }
   }
 }

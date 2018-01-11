@@ -10,11 +10,13 @@ import store from './store'
 import * as filter from './filter' // 全局vue filter
 import 'styles/index.scss'
 import './mock/index' // 引入mockjs
+import './directives/directive'
+import '../static/iconfont/iconfont.css'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 
-// global filter.
+// 全局filter
 Object.keys(filter.default).forEach(key => {
   Vue.filter(key, filter.default[key])
 })
