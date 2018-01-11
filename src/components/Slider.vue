@@ -40,7 +40,7 @@ export default {
             },
             {
               index: 'editableTable',
-              title: '基础表格'
+              title: '可编辑表格'
             },
             {
               index: 'vuetable',
