@@ -42,8 +42,8 @@ export default {
     }
     return {
       loginfrom: {
-        username: '',
-        psw: ''
+        username: 'admin',
+        psw: '123456'
       },
       rules: {
         psw: [

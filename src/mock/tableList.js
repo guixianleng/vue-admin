@@ -7,15 +7,16 @@ const Random = Mock.Random
 
 // mock一组数据
 
-const tableListData = function () {
+const baseTableList = function () {
   let list = []
-
   for (let i = 0; i < 20; i++) {
     let array = {
       address: Random.county(true), // Random.county(true)生成所属的省、市
       name: Random.cname(), // Random.cname() 随机生成一个常见的中文姓名
       birthday: Random.date(), // Random.date()指示生成的日期字符串的格式,默认为yyyy-MM-dd
-      age: new Date().getFullYear() - Random.date('yyyy')
+      age: Random.date(),
+      id: 1,
+      describe: Random.cparagraph()
     }
     list.push(array)
   }
@@ -26,4 +27,4 @@ const tableListData = function () {
 
 // Mock.mock( url, post/get , 返回的数据)
 
-export default Mock.mock('/people/tableList', 'get', tableListData)
+export default Mock.mock('/people/baseTableList', 'get', baseTableList)
