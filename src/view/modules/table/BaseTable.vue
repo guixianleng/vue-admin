@@ -37,7 +37,7 @@
       </el-table-column>
       <el-table-column
         prop="title"
-        label="标题"
+        label="描述"
         align="center"
         width="250"
         show-overflow-tooltip>
@@ -120,16 +120,16 @@ export default {
     },
     handleDelete (index, row) {
       row.status = 2
-      row.disableEdit = true
+      // row.disableEdit = true
     },
     handleBlack (index, row) {
       row.status = 3
-      row.disableEdit = true
+      // row.disableEdit = true
     },
     handleSuccess (value) {
       this.tableList.map((item, index) => {
         if (index === value.index) {
-          item.status = 1
+          item.status = Number(value.status)
           item.name = value.name
           item.birthday = value.birthday
           item.title = value.title

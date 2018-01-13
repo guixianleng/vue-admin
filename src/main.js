@@ -12,6 +12,7 @@ import 'styles/index.scss'
 import './mock/index' // 引入mockjs
 import './directives/directive'
 import '../static/iconfont/iconfont.css'
+import './utils/validator'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)

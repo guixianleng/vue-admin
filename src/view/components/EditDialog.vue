@@ -25,6 +25,16 @@
         <!-- <address-cascader v-model="form.address" :clearable="true"  style="width: 100%" :grade="3" placeholder="请选择居住地址"  @change ="handleChange"/> -->
         <el-input v-model="form.title" ></el-input>
       </el-form-item>
+      <el-form-item label="状态" prop="status"
+          :rules="[
+            {required: true, message: '请选择状态'}
+          ]">
+        <el-radio-group v-model="form.status" size="mini">
+          <el-radio label="1" border>编辑中</el-radio>
+          <el-radio label="2" border>删除</el-radio>
+          <el-radio label="3" border>拉黑</el-radio>
+        </el-radio-group>
+      </el-form-item>
       <el-form-item>
         <el-button @click="handleClose">取 消</el-button>
       <el-button type="primary" @click="submitForm('form')">保存</el-button>
@@ -72,7 +82,7 @@ export default {
     this.form.birthday = this.editInfo.birthday
     this.form.title = this.editInfo.title
     this.form.index = this.editInfo.index
-    this.form.status = this.editInfo.status
+    this.form.status = this.editInfo.status === 0 ? '1' : this.editInfo.status + ''
     this.form.sex = this.editInfo.sex
     this.form.disableEdit = this.editInfo.disableEdit
   },

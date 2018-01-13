@@ -1,52 +1,42 @@
 <template>
   <div class="content-box editable_table">
     <el-table
-      ref="multipleTable"
       :data="tableList"
       tooltip-effect="dark"
-      style="width: 100%"
-      @selection-change="handleSelectionChange">
+      style="width: 100%">
       <el-table-column
-        type="selection"
+        type="index"
+        width="50"
         align="center">
       </el-table-column>
       <el-table-column
-        label="出生日期"
+        label="日期"
         align="center"
         width="120">
         <template slot-scope="scope">
           <i class="el-icon-time"></i>
-          <span>{{ scope.row.birthday }}</span>
+          <span>{{ scope.row.date }}</span>
         </template>
       </el-table-column>
       <el-table-column
-        prop="name"
-        label="姓名"
-        width="80"
-        align="center">
+        prop="author"
+        label="作者"
+        align="center"
+        width="120">
       </el-table-column>
       <el-table-column
-        prop="sex"
-        label="性别"
+        prop="string"
+        label="热度"
         align="center"
-        width="60">
-        <template slot-scope="scope">
-          {{scope.row.sex === 1 ? '男' : '女'}}
-        </template>
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址"
-        align="center"
-        show-overflow-tooltip>
+        width="120">
       </el-table-column>
       <el-table-column
         prop="describe"
-        label="描述"
+        label="标题"
         align="center"
         show-overflow-tooltip>
         <template slot-scope="scope">
-          <el-input v-model="scope.row.describe" v-if="scope.row.isEdit"/>
+          <el-input v-model="scope.row.describe" v-focus v-if="scope.row.isEdit"/>
           <span v-else>{{scope.row.describe}}</span>
         </template>
       </el-table-column>
@@ -61,12 +51,6 @@
         </template>
       </el-table-column>
     </el-table>
-    <div style="margin: 10px 0 0 10px">
-      <el-button @click="handleDelete()" type="danger" :disabled="multipleSelection.length === 0">
-        <i class="el-icon-delete"></i>
-        批量删除
-      </el-button>
-    </div>
   </div>
 </template>
 
@@ -82,23 +66,11 @@ export default {
   },
   mounted () {
     api.editableTableList().then(res => {
-      console.log(res)
+      // console.log(res)
       this.tableList = res.data.data.list
     })
   },
   methods: {
-    toggleSelection (rows) {
-      if (rows) {
-        rows.forEach(row => {
-          this.$refs.multipleTable.toggleRowSelection(row)
-        })
-      } else {
-        this.$refs.multipleTable.clearSelection()
-      }
-    },
-    handleSelectionChange (val) {
-      this.multipleSelection = val
-    },
     handleEdit (index, row) {
       row.isEdit = !row.isEdit
     },
@@ -115,7 +87,7 @@ export default {
 .editable_table {
   .el-input__inner {
     height: 27px;
-    padding: 0 5px;
+    padding: 0 10px;
   }
 }
 </style>

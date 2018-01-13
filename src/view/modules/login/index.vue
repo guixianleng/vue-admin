@@ -1,11 +1,15 @@
 <template>
   <div class="login-container">
     <div class="login_box">
-      <el-form :model="loginfrom" :rules="rules" ref="loginfrom" class="demo-ruleForm" label-width="60px">
-        <el-form-item label="用户名" prop="username">
+      <el-form :model="loginfrom" :rules="rules" ref="loginfrom" class="demo-ruleForm" label-width="70px">
+        <el-form-item label="用户名" prop="username" :rules="[
+            { required: true, validator: validator.username, trigger: 'blur', message: '请输入用户名'}
+          ]">
           <el-input type="username" v-model="loginfrom.username" v-focus></el-input>
         </el-form-item>
-        <el-form-item label="密码" prop="psw">
+        <el-form-item label="密码" prop="psw" :rules="[
+            { required: true, validator: validator.password, trigger: 'blur', message: '请输入密码'}
+          ]">
           <el-input type="password" v-model="loginfrom.psw"></el-input>
         </el-form-item>
         <el-form-item>
@@ -26,33 +30,13 @@ export default {
     })
   },
   data () {
-    var validatePass = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请输入密码'))
-      } else {
-        callback()
-      }
-    }
-    var validateName = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('请输入用户名'))
-      } else {
-        callback()
-      }
-    }
     return {
+      validator: '',
       loginfrom: {
         username: 'admin',
         psw: '123456'
       },
-      rules: {
-        psw: [
-          { validator: validatePass, trigger: 'blur' }
-        ],
-        username: [
-          { validator: validateName, trigger: 'blur' }
-        ]
-      }
+      rules: {}
     }
   },
   methods: {
