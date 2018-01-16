@@ -119,12 +119,25 @@ export default {
       this.isShow = true
     },
     handleDelete (index, row) {
+<<<<<<< Updated upstream
       row.status = 2
       // row.disableEdit = true
     },
     handleBlack (index, row) {
       row.status = 3
       // row.disableEdit = true
+=======
+      this.$confirm('删除后将不可进行操作了哦，确认删除吗？', '温馨提示', {type: 'warning'}).then(() => {
+        row.status = 2
+        row.disableEdit = true
+      }).catch(() => {})
+    },
+    handleBlack (index, row) {
+      this.$confirm('拉黑后将不可进行操作了哦，确认拉黑吗？', '温馨提示', {type: 'warning'}).then(() => {
+        row.status = 3
+        row.disableEdit = true
+      }).catch(() => {})
+>>>>>>> Stashed changes
     },
     handleSuccess (value) {
       this.tableList.map((item, index) => {
