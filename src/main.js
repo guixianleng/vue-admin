@@ -13,6 +13,7 @@ import './mock/index' // 引入mockjs
 import './directives/directive'
 import '../static/iconfont/iconfont.css'
 import './utils/validator'
+// import 'normalize.css'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
@@ -23,6 +24,7 @@ Object.keys(filter.default).forEach(key => {
 })
 
 router.beforeEach((to, from, next) => {
+  // console.log(store.getters.role)
   if (store.getters.role) { // 判断role 是否存在
     if (store.getters.newrouter.length !== 0) {
       next() // resolve 钩子
@@ -46,8 +48,7 @@ router.beforeEach((to, from, next) => {
       router.addRoutes(newrouter) // 添加动态路由
       store.dispatch('Roles', newrouter).then(res => {
         next({ ...to })
-      }).catch(() => {
-      })
+      }).catch(() => {})
     }
   } else {
     if (['/login'].indexOf(to.path) !== -1) {

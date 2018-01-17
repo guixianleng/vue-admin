@@ -56,7 +56,7 @@
         label="操作"
         align="center">
         <template slot-scope="scope">
-          <el-button type="primary" size="mini" @click="handleEdit(scope.$index, scope.row)" :disabled="scope.row.disableEdit" icon="el-icon-edit">编辑</el-button>
+          <el-button type="primary" size="mini" @click="handleEdit(scope.$index, scope.row)" icon="el-icon-edit">编辑</el-button>
           <el-button type="danger" size="mini" @click="handleDelete(scope.$index, scope.row)" icon="el-icon-delete">删除</el-button>
           <el-button type="info" size="mini" @click="handleBlack(scope.$index, scope.row)">黑名单</el-button>
         </template>
@@ -74,7 +74,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import editDialog from '../../components/EditDialog'
+import editDialog from './components/EditDialog'
 import api from '@/api/index'
 export default {
   components: {

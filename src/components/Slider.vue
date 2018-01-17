@@ -1,6 +1,7 @@
 <template>
-    <div class="sidebar">
-      <el-menu :default-active="onRoutes" class="el-menu-vertical-demo" theme="dark" unique-opened router>
+  <div class="sidebar">
+    <el-menu :default-active="onRoutes" class="el-menu-vertical-demo" theme="dark" unique-opened router>
+      <draggable v-model="contentItems" :options="{group:'people'}" @start="drag=true" @end="drag=false">
         <template v-for="item in contentItems">
           <template v-if="item.subLists">
             <el-submenu :index="item.index">
@@ -17,12 +18,17 @@
             </el-menu-item>
           </template>
         </template>
-      </el-menu>
-    </div>
+      </draggable>
+    </el-menu>
+  </div>
 </template>
 
 <script>
+import draggable from 'vuedraggable'
 export default {
+  components: {
+    draggable
+  },
   data () {
     return {
       contentItems: [
@@ -50,6 +56,11 @@ export default {
               icon: 'iconfont icon-drag',
               index: 'dragTable',
               title: '拖拽'
+            },
+            {
+              icon: 'el-icon-upload2',
+              index: 'batchTable',
+              title: '批量'
             }
           ]
         },
@@ -69,7 +80,7 @@ export default {
           ]
         },
         {
-          icon: 'el-icon-star-on',
+          icon: 'el-icon-picture',
           index: 'basecharts',
           title: 'echarts'
         },

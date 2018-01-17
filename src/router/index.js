@@ -37,6 +37,18 @@ export const powerRouter = [
         name: 'editableTable',
         component: resolve => require(['../view/modules/table/EditableTable.vue'], resolve),
         meta: {role: 'B'}
+      },
+      {
+        path: '/dragTable',
+        name: 'dragTable',
+        component: resolve => require(['../view/modules/table/DragTable.vue'], resolve),
+        meta: {role: 'B'}
+      },
+      {
+        path: '/batchTable',
+        name: 'batchTable',
+        component: resolve => require(['../view/modules/table/BatchAddTable.vue'], resolve),
+        meta: {role: 'B'}
       }
     ]
   }

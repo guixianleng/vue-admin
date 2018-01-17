@@ -1,3 +1,4 @@
+var path = require('path')
 var utils = require('./utils')
 var webpack = require('webpack')
 var config = require('../config')
@@ -10,6 +11,10 @@ var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
   baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
 })
+
+function resolveApp(relativePath) {
+  return path.resolve(relativePath)
+}
 
 module.exports = merge(baseWebpackConfig, {
   module: {
@@ -28,7 +33,9 @@ module.exports = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
-      inject: true
+      favicon: resolveApp('favicon.ico'),
+      inject: true,
+      path:config.dev.staticPath
     }),
     new FriendlyErrorsPlugin()
   ]

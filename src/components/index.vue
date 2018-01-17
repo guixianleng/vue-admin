@@ -26,7 +26,7 @@ export default {
   position: relative;
   .content {
     margin-left: 10px;
-    padding: 10px 0 0 210px;
+    padding: 20px 0 0 210px;
   }
 }
 </style>
