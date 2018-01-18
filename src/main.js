@@ -13,10 +13,22 @@ import './mock/index' // 引入mockjs
 import './directives/directive'
 import '../static/iconfont/iconfont.css'
 import './utils/validator'
+import VueAMap from 'vue-amap'
+import ECharts from 'vue-echarts'
 // import 'normalize.css'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+Vue.use(VueAMap)
+// Vue.use(ECharts)
+Vue.component('chart', ECharts)
+
+const GaoDeMapKey = 'a4f8c47ba3d3cf9c83c49c901619568a'
+VueAMap.initAMapApiLoader({
+  key: GaoDeMapKey,
+  plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.Geocoder',
+    'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor', 'Geolocation', 'Geocoder']
+})
 
 // 全局filter
 Object.keys(filter.default).forEach(key => {

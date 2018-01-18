@@ -81,13 +81,18 @@ export default {
         },
         {
           icon: 'el-icon-picture',
-          index: 'basecharts',
+          index: 'vue-echarts',
           title: 'echarts'
         },
         {
           icon: 'iconfont icon-bianji',
           index: 'vueeditor',
           title: '编辑器'
+        },
+        {
+          icon: 'el-icon-location-outline',
+          index: 'vueamap',
+          title: '高德地图'
         },
         {
           icon: 'iconfont icon-fuwenben',

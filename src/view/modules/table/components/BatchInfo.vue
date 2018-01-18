@@ -13,12 +13,12 @@
         ]">
       <el-input :maxlength="11" v-model.trim="form.mobile"></el-input>
     </el-form-item>
-    <el-form-item label="日期" prop="date"
+    <el-form-item label="日期" prop="valueDate"
       :rules="[
         {required: true, message: '请填写日期', trigger: 'blur'}
       ]">
       <el-date-picker
-        v-model="form.date"
+        v-model="form.valueDate"
         type="date"
         placeholder="选择日期"
         :picker-options="pickerOptions">
@@ -63,7 +63,7 @@ import AddressCascader from '../../../components/AddressCascader'
 import validator from '@/utils/validator'
 export default {
   props: {
-    studentInfo: {
+    info: {
       type: Object
     }
   },
@@ -90,7 +90,7 @@ export default {
       rules: {},
       form: {
         name: '',
-        date: '',
+        valueDate: '',
         idType: 1,
         idNo: '',
         address: [],
@@ -104,13 +104,13 @@ export default {
     }
   },
   watch: {
-    studentInfo (value) {
+    info (value) {
       this.form.name = value.name
-      this.form.date = value.date
+      this.form.valueDate = value.valueDate
       this.form.idType = value.idType
       this.form.idNo = value.idNo
       this.form.address = value.address
-      this.form.mobil = value.mobil
+      this.form.mobile = value.mobile
     }
   },
   methods: {

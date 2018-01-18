@@ -63,7 +63,7 @@
     <!-- 弹框增加或编辑 -->
     <div class="studentStyle">
       <el-dialog title="填写新增信息" :visible.sync="isShow" @close="handleColse">
-        <batch-add :studentInfo="studentInfo" v-if="isClose" v-model="isClose" @success="handleSuccess"/>
+        <batch-add :info="info" v-if="isClose" v-model="isClose" @success="handleSuccess"/>
       </el-dialog>
     </div>
   </div>
@@ -79,7 +79,7 @@ export default {
     return {
       isShow: false,
       isClose: false,
-      studentInfo: {},
+      info: {},
       list: [],
       isEdit: false, // 是否编辑成员
       editIndex: ''
@@ -91,7 +91,7 @@ export default {
       this.isClose = true
       this.isEdit = false
       this.isAdd = true
-      this.studentInfo = {}
+      this.info = {}
     },
     handleEdit (index, row) {
       this.isClose = true
@@ -99,12 +99,12 @@ export default {
       this.isEdit = true
       let scope = this
       setTimeout(function () {
-        scope.studentInfo = row
+        scope.info = row
         scope.editIndex = index
       }, 300)
     },
     handleColse () {
-      this.studentInfo = {}
+      this.info = {}
       this.isClose = false
     },
     handleDelete (index, row) {

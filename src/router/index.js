@@ -49,6 +49,18 @@ export const powerRouter = [
         name: 'batchTable',
         component: resolve => require(['../view/modules/table/BatchAddTable.vue'], resolve),
         meta: {role: 'B'}
+      },
+      {
+        path: '/vueamap',
+        name: 'vueamap',
+        component: resolve => require(['../view/modules/map/Vuemap.vue'], resolve),
+        meta: {role: 'B'}
+      },
+      {
+        path: '/vue-echarts',
+        name: 'vueEcharts',
+        component: resolve => require(['../view/modules/echarts/VueEcharts.vue'], resolve),
+        meta: {role: 'B'}
       }
     ]
   }
