@@ -61,6 +61,11 @@ export default {
               icon: 'el-icon-upload2',
               index: 'batchTable',
               title: '批量'
+            },
+            {
+              icon: 'el-icon-more',
+              index: 'moreTable',
+              title: '更多操作'
             }
           ]
         },

@@ -1,7 +1,6 @@
 import axios from 'axios'
 import qs from 'qs'
 import { Message } from 'element-ui'
-// import router from '../router'
 
 const Axios = axios.create({
   baseURL: '/', // 因为我本地做了反向代理

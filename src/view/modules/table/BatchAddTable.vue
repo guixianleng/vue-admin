@@ -14,18 +14,21 @@
           </template>
         </el-table-column>
         <el-table-column
-          prop="date"
+          prop="valueDate"
           label="日期"
+          width="100"
           align="center">
         </el-table-column>
         <el-table-column
           prop="name"
           align="center"
+          width="80"
           label="姓名">
         </el-table-column>
         <el-table-column
           prop="mobile"
           label="手机号"
+          width="120"
           align="center">
         </el-table-column>
         <el-table-column
@@ -42,14 +45,14 @@
           label="操作"
           align="center">
           <template slot-scope="scope">
-            <el-button type="link" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-            <el-button type="link" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+            <el-button type="primary" @click="handleEdit(scope.$index, scope.row)" size="mini">编辑</el-button>
+            <el-button type="warning" @click="handleDelete(scope.$index, scope.row)" size="mini">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
       <div v-if="this.list.length">
         <div class="add-btn">
-          <el-button  @click="handleAdd" type="link">+ 新增</el-button>
+          <el-button  @click="handleAdd" class="link">+ 新增</el-button>
         </div>
         <div class="btn-wrapper center">
           <el-button @click="handleCancel">取消</el-button>
@@ -80,7 +83,7 @@ export default {
       isShow: false,
       isClose: false,
       info: {},
-      list: [],
+      list: [{name: '李四', mobile: 13516161616, valueDate: new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate(), address: ['江西省', '九江市', '修水县'], idNo: 360424199912151515, idType: 1}],
       isEdit: false, // 是否编辑成员
       editIndex: ''
     }
@@ -191,11 +194,7 @@ export default {
         this.isShow = false
       }
     },
-    handleSubmit () {
-      // api.addStudent(JSON.stringify(this.list), {context: this, successMsg: '修改成功'}).then(res => {
-      //   history.back()
-      // })
-    }
+    handleSubmit () {}
   }
 }
 </script>
@@ -208,6 +207,9 @@ export default {
     .el-button {
       width: 100%;
       border: none
+    }
+    .link {
+      background-color: #B0DEDB;
     }
   }
   .now_add_btn {

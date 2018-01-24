@@ -15,15 +15,13 @@ import '../static/iconfont/iconfont.css'
 import './utils/validator'
 import VueAMap from 'vue-amap'
 import ECharts from 'vue-echarts'
-// import 'normalize.css'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(VueAMap)
-// Vue.use(ECharts)
 Vue.component('chart', ECharts)
 
-const GaoDeMapKey = 'a4f8c47ba3d3cf9c83c49c901619568a'
+const GaoDeMapKey = '4714edff012f9d5f3c85c3bd70af73c1'
 VueAMap.initAMapApiLoader({
   key: GaoDeMapKey,
   plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.Geocoder',

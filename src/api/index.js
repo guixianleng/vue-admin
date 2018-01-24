@@ -21,6 +21,12 @@ export default{
       params
     })
   },
+  moreTableList (params) {
+    return fetch({
+      url: 'https://easy-mock.com/mock/59dc46f31de3d46fa94ccad9/admin/api/table/moreTable/list',
+      params
+    })
+  },
   deleteMember (options, data) {
     return fetch({
       url: 'https://easy-mock.com/mock/59dc46f31de3d46fa94ccad9/admin/api/delete/member',
