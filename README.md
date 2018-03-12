@@ -1,6 +1,6 @@
 ### Vue全家桶 + axios + ElementUi + mockjs搭建的后台管理系统
 
-#### 项目预览地址：[https://guixianleng.github.io/vue-admin/dist/index.html](https://guixianleng.github.io/vue-admin/dist/index.html?_blank)
+#### 项目预览地址：https://guixianleng.github.io/vue-admin/dist/index.html
 
 #### 项目目录结构
 ```shell
