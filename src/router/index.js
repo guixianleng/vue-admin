@@ -63,6 +63,12 @@ export const powerRouter = [
         name: 'vueEcharts',
         component: resolve => require(['../view/modules/echarts/VueEcharts.vue'], resolve),
         meta: {role: 'B'}
+      },
+      {
+        path: '/testdemo',
+        name: 'testdemo',
+        component: resolve => require(['../view/modules/testDemo/index.vue'], resolve),
+        meta: {role: 'B'}
       }
     ]
   }

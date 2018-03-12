@@ -26,7 +26,7 @@ module.exports = {
     port: 8099,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
     proxyTable: {
       // '/api': {
       //   target: 'http://org.htxk.dev/api',

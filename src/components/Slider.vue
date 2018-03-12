@@ -108,6 +108,11 @@ export default {
           icon: 'iconfont icon-shangchuan',
           index: 'upload',
           title: '文件上传'
+        },
+        {
+          icon: 'el-icon-circle-plus-outline',
+          index: 'testdemo',
+          title: '测试文件'
         }
       ]
     }

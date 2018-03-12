@@ -49,7 +49,7 @@
         <template slot-scope="scope">
           <el-dropdown @command="handleCommand" size="mini" trigger="click">
             <span class="el-dropdown-link">
-              更多<i class="el-icon-caret-bottom el-icon--right"></i>
+              更多<i class="el-icon-arrow-down el-icon--right"></i>
             </span>
             <!-- 更多 -->
             <el-dropdown-menu slot="dropdown">
@@ -59,9 +59,7 @@
               <el-dropdown-item :command="{index: scope.$index, row: scope.row, style: 4}" class="set_downsize">续费</el-dropdown-item>
               <el-dropdown-item :command="{index: scope.$index, row: scope.row, style: 5}" class="set_downsize">处理</el-dropdown-item>
               <el-dropdown-item :command="{index: scope.$index, row: scope.row, style: 6}" class="set_downsize">查看处理情况</el-dropdown-item>
-              <el-dropdown-item :command="{index: scope.$index, row: scope.row, style: 7}" class="set_downsize">流失</el-dropdown-item>
-              <el-dropdown-item :command="{index: scope.$index, row: scope.row, style: 8}" class="set_downsize">查看流失情况</el-dropdown-item>
-              <el-dropdown-item :command="{index: scope.$index, row: scope.row, style: 9}" class="set_downsize">删除</el-dropdown-item>
+              <el-dropdown-item :command="{index: scope.$index, row: scope.row, style: 7}" class="set_downsize">删除</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
         </template>
@@ -112,21 +110,6 @@ export default {
           this.info = row
           this.islossedClose = true
           this.islossed = true
-        },
-        8: (row) => {
-          this.info = row
-          this.islossedClose = true
-          this.islossed = false
-        },
-        10: (row) => {
-          this.info = Object.assign({isClassCancelDispose: 0, isClassDispose: true}, row)
-          this.isDisposeClose = true
-          this.isDispose = true
-        },
-        11: (row) => {
-          this.info = Object.assign({isClassCancelDispose: 1, isClassDispose: true}, row)
-          this.isDisposeClose = true
-          this.isDispose = false
         }
       }
       obj[command.style](command.row)
@@ -135,6 +118,14 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.content-box{
+  .el-dropdown-link {
+    cursor: pointer;
+    color: #409EFF;
+  }
+  .el-icon-arrow-down {
+    font-size: 12px;
+  }
+}
 </style>

@@ -1,24 +1,24 @@
 <template>
 <div class="content-box">
   <el-row :gutter="20">
-    <el-col :span="12">
+    <!-- <el-col :span="12">
       <div class="grid-content bg-purple">
         <chart :options="polar"/>
       </div>
-    </el-col>
+    </el-col> -->
     <el-col :span="12">
       <div class="grid-content bg-purple">
         <chart :options="polarColumnar"></chart>
       </div>
     </el-col>
   </el-row>
-  <!-- <el-row :gutter="20">
+  <el-row :gutter="20">
     <el-col :span="24">
       <div class="grid-content bg-purple">
         <chart :options="chinaMap" class="map"></chart>
       </div>
     </el-col>
-  </el-row> -->
+  </el-row>
 </div>
 </template>
 
